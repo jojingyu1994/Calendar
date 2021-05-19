@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CalendarController;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +16,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
+
+//Route::get('/index', [CalendarController::class,'index']);
+Route::post("/index", "App\Http\Controllers\CalendarController@show");
+Route::get('/create_calendar_index', [CalendarController::class,'create']);
